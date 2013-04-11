@@ -1,0 +1,6 @@
+#! /bin/sh
+set -xeuf
+
+# cd //Reaktor
+cd $(dirname $(readlink -f $0))
+bottype=jabberwacky probability=0.99 nick='alice|shack' host=irc.freenode.net target='#grundsatzdiskussion' python asybot.py "$@" 
