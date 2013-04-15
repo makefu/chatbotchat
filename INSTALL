@@ -1,0 +1,19 @@
+# Installation
+
+chatbotchat comes without dependencies when using one of the following bots:
+- Cleverbot
+- Jabberwacky
+- Pandorabots
+
+When using the twss bot libsvm is requred
+# TWSS Bot
+## dependencies
+Twss bot requires the following dependencies:
+- libsvm-python (or python-libsvm)
+
+## Preparation
+
+    cd twss
+    python preprocessData.py
+    python generateTrainTestData.py
+    python train.py

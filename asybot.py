@@ -41,6 +41,8 @@ class asybot(asychat):
       self.botfactory = factory.create(ChatterBotType.JABBERWACKY)
     elif bottype == "pandorabots":
       self.botfactory = factory.create(ChatterBotType.PANDORABOTS,"c7068fbf3e344abf")
+    elif bottype == "twssbot":
+      self.botfactory = factory.create(ChatterBotType.TWSSBOT)
     else:
       log.error("do not know bottype %s" % bottype)
       exit(1)

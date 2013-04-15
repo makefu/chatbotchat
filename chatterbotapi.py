@@ -31,6 +31,7 @@ class ChatterBotType:
     CLEVERBOT = 1
     JABBERWACKY = 2
     PANDORABOTS = 3
+    TWSSBOT = 4
 
 class ChatterBotFactory:
 
@@ -43,6 +44,9 @@ class ChatterBotFactory:
             if arg == None:
                 raise Exception('PANDORABOTS needs a botid arg')
             return _Pandorabots(arg)
+        elif type == ChatterBotType.TWSSBOT:
+            return _TWSSbot()
+
         return None
 
 class ChatterBot:
@@ -63,6 +67,29 @@ class ChatterBotSession:
 class ChatterBotThought:
 
     pass
+class _TWSSbot():
+    def __init__(self,vocab='twss/data/vocab.pk',model='twss/data/svm_model.pk'):
+        self.vocab = vocab
+        self.model = model
+
+    def create_session(self):
+        return _TWSSbotSession(self)
+
+class _TWSSbotSession(ChatterBot):
+    def __init__(self,bot):
+        self.vocab = bot.vocab
+        self.model = bot.model
+
+    def think(self,text):
+        from twss.twss import twss_lite
+        import pickle
+        from svmutil import svm_load_model
+        input = open(self.vocab)
+        vocabList = pickle.load(input)
+        input.close()
+        model = svm_load_model(self.model)
+        return "That's what she said!" if twss_lite(text,vocabList,model) == 1 else ""
+
 
 #################################################
 # Cleverbot impl
