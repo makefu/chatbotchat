@@ -146,7 +146,7 @@ class asybot(asychat):
     if random() < self.probability:
       try:
         # delay
-        log.debug ("will answer to '%s'"%rest)
+        log.info("%s will answer to '%s'"%(self.nickname,rest))
         now = time()
         answer = str(self.bot.think(rest))
         timetosleep = now + base_delay  - time() + len(answer) / CPS
@@ -156,7 +156,7 @@ class asybot(asychat):
       except Exception as e:
         log.error(str(e))
     else:
-      log.debug("will not answer, probability check failed")
+      log.info("%s will not answer to '%s', probability check failed" % (self.nickname,rest))
       
 
 
