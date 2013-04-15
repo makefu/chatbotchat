@@ -22,6 +22,10 @@ import xml.dom.minidom
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+"""
+  Add Twss Bot Class by Felix Richter <root@euer.krebsco.de>
+"""
+
 #################################################
 # API
 #################################################
