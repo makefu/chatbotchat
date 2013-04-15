@@ -1,0 +1,13 @@
+#! /bin/sh
+set -euf
+
+export probability=0.45
+
+bottype=pandorabots nick='john|shack' host=irc.freenode.net target='#grundsatzdiskussion' python asybot.py "$@" &
+A=$!
+bottype=jabberwacky nick='alice|shack' host=irc.freenode.net target='#grundsatzdiskussion' python asybot.py "$@" &
+B=$!
+bottype=cleverbot nick='bob|shack' host=irc.freenode.net target='#grundsatzdiskussion' python asybot.py "$@" &
+C=$!
+trap 'echo killing all the shit;kill $A $B $C' TERM INT KILL EXIT
+wait $A $B $C
