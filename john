@@ -3,4 +3,4 @@ set -xeuf
 
 # cd //Reaktor
 cd $(dirname $(readlink -f $0))
-bottype=pandorabots probability=0.99 nick='john|shack' host=irc.freenode.net target='#grundsatzdiskussion' python asybot.py "$@"
+bottype=pandorabots probability=0.33 nick='john|shack' host=irc.freenode.net target='#grundsatzdiskussion' python asybot.py "$@"
