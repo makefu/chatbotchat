@@ -12,6 +12,8 @@ Twss bot requires the following dependencies:
 - libsvm-python (or python-libsvm)
 
 ## Preparation
+This normally should not be necessary as training data are checked in.
+If you add training data run the following:
 
     cd twss
     python preprocessData.py
